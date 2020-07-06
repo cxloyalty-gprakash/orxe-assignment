@@ -1,109 +1,20 @@
-@import "@orxe/theme/imports";
-@import "@orxe/theme/components/rating-bar/variables";
-
-$donut-rating-bar-width: 40px;
-
-label {
-  font-family: var(--rating-bar-font-family);
-  color: var(--rating-bar-label-color);
-  font-weight: var(--rating-bar-font-weight);
+:host {
+  --rating-bar-font-family:var(--global-font-family);
+  --rating-bar-label-color:var(--primary-text);
+  --rating-bar-font-weight: var(--font-weight-semi-bold);  
+  --rating-bar-linear-rating-info-font-size: 1.6rem;
+  --rating-bar-donut-rating-info-font-size: 1.4rem;
+  --rating-bar-linear-padding: var(--spacing-03);
+  --rating-bar-background-color: var(--separator-01);
+  --rating-bar-bad: var(--error);
+  --rating-bar-poor: var(--rating-poor);
+  --rating-bar-average: var(--warning);
+  --rating-bar-great: var(--rating-great);
+  --rating-bar-excellent: var(--primary);
 }
 
-.right{
-  float: right;
-}
-
-.linear-rating-bar {
-  .bar-container {
-    background-color: var(--rating-bar-background-color);
-    border-radius: 25px;
-    text-align: center;
-    color: white;
-    height: 8px;
-    margin-bottom: var(--rating-bat-linear-padding);
-  }
-
-  label {
-    font-size: 1.6rem;
-  }
-
-  .rating {
-    height: 8px;
-    border-radius: 25px;
-
-    &.rating-1 {
-      background-color: var(--rating-bar-bad);
-    }
-
-    &.rating-2 {
-      background-color: var(--rating-bar-poor);
-    }
-
-    &.rating-3 {
-      background-color: var(--rating-bar-average);
-    }
-
-    &.rating-4 {
-      background-color: var(--rating-bar-great);
-    }
-
-    &.rating-5 {
-      background-color: var(--rating-bar-excellent);
-    }
-  }
-}
-
-.donut-rating-bar {
-  height: $donut-rating-bar-width;
-  position: relative;
-  width: $donut-rating-bar-width;
-
-  &__svg {
-    border-radius: 50%;
-    height: 100%;
-    transform: scaleX(-1) rotate(-90deg);
-    width: 100%;
-  }
-
-  &__stroke {
-    fill: none;
-    stroke-width: 4px;
-
-    &:nth-child(2) {
-      stroke: var(--rating-bar-background-color);
-      stroke-dasharray: 314.1592%;
-    }
-
-    &.rating-1 {
-      stroke: var(--rating-bar-bad);
-    }
-
-    &.rating-2 {
-      stroke: var(--rating-bar-poor);
-    }
-
-    &.rating-3 {
-      stroke: var(--rating-bar-average);
-    }
-
-    &.rating-4 {
-      stroke: var(--rating-bar-great);
-    }
-
-    &.rating-5 {
-      stroke: var(--rating-bar-excellent);
-    }
-  }
-
-  label {
-    font-size: 1.4rem;
-    background-color: transparent;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    position: absolute;
-    right: 0;
-    text-align: center;
-    line-height: $donut-rating-bar-width;
-  }
-}
+$rating-bar-linear-width: 100%;
+$rating-bar-donut-width: 40px;
+$rating-bar-linear-track-width: 100%;
+$rating-bar-linear-border-radius: 25px;
+$rating-bar-linear-track-height: 8px;

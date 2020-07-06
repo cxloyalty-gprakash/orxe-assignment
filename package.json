@@ -49,6 +49,7 @@
   "dependencies": {
     "@orxe-culture/core": "^2.2.0",
     "@orxe-culture/lit": "^2.2.0",
-    "@orxe-culture/locale": "^2.2.0"
+    "@orxe-culture/locale": "^2.2.0",
+    "@orxe/theme": "0.0.2"
   }
 }

@@ -1,1 +1,108 @@
-@import './orxe-rating-bar-map.scss';
+@import "./orxe-rating-bar-map.scss";
+
+label {
+  font-family: var(--rating-bar-font-family);
+  color: var(--rating-bar-label-color);
+  font-weight: var(--rating-bar-font-weight);
+}
+
+.right {
+  float: right;
+}
+
+.linear-rating-bar {
+  width: $rating-bar-linear-width;
+
+  .bar-container {
+    width: $rating-bar-linear-track-width;
+    background-color: var(--rating-bar-background-color);
+    border-radius: $rating-bar-linear-border-radius;
+    text-align: center;
+    height: $rating-bar-linear-track-height;
+    margin-bottom: var(--rating-bat-linear-padding);
+  }
+
+  label {
+    font-size: var(--rating-bar-linear-rating-info-font-size);
+  }
+
+  .rating {
+    height: $rating-bar-linear-track-height;
+    border-radius: $rating-bar-linear-border-radius;
+
+    &.rating-1 {
+      background-color: var(--rating-bar-bad);
+    }
+
+    &.rating-2 {
+      background-color: var(--rating-bar-poor);
+    }
+
+    &.rating-3 {
+      background-color: var(--rating-bar-average);
+    }
+
+    &.rating-4 {
+      background-color: var(--rating-bar-great);
+    }
+
+    &.rating-5 {
+      background-color: var(--rating-bar-excellent);
+    }
+  }
+}
+
+.donut-rating-bar {
+  height: $rating-bar-donut-width;
+  position: relative;
+  width: $rating-bar-donut-width;
+
+  &__svg {
+    border-radius: 50%;
+    height: 100%;
+    transform: scaleX(-1) rotate(-90deg);
+    width: 100%;
+  }
+
+  &__stroke {
+    fill: none;
+    stroke-width: 4px;
+
+    &:nth-child(2) {
+      stroke: var(--rating-bar-background-color);
+      stroke-dasharray: 314.1592%;
+    }
+
+    &.rating-1 {
+      stroke: var(--rating-bar-bad);
+    }
+
+    &.rating-2 {
+      stroke: var(--rating-bar-poor);
+    }
+
+    &.rating-3 {
+      stroke: var(--rating-bar-average);
+    }
+
+    &.rating-4 {
+      stroke: var(--rating-bar-great);
+    }
+
+    &.rating-5 {
+      stroke: var(--rating-bar-excellent);
+    }
+  }
+
+  label {
+    font-size: var(--rating-bar-donut-rating-info-font-size);
+    background-color: transparent;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    line-height: $rating-bar-donut-width;
+  }
+}
