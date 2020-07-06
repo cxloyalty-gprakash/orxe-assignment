@@ -9,14 +9,23 @@ export default class OrxeRatingBar extends TranslationClass {
   private _maxRating: number;
 
   // #region external properties
-  @property()
+  /**
+   * This property is used to set the rating for the rating bar
+   */
+  @property({ type: Number, reflect: true })
   rating = 0;
 
-  @property()
+  /**
+   * This property is used to set the label for the rating bar
+   */
+  @property({ type: String, reflect: true })
   label = "";
 
-  @property()
-  type = "linear";
+  /**
+   * This property is used to set the type of the rating bar. By default, it will show a linear rating bar.
+   */
+  @property({ type: String, reflect: true })
+  type: "linear" | "donut" = "linear";
 
   // #endregion
 
@@ -47,6 +56,9 @@ export default class OrxeRatingBar extends TranslationClass {
    */
   static styles = styles;
 
+  /**
+   * This method encapsulates the styles and aria-label handling w.r.t the values provided by the consumer
+   */
   updateRating() {
     this._setRatingStyles();
 
@@ -59,11 +71,16 @@ export default class OrxeRatingBar extends TranslationClass {
     }
   }
 
+  /**
+   * This method is used to set the right styles on the rating bar to represent the progress/rating value
+   */
   private _setRatingStyles() {
     const value = this.rating;
     if (this.type.toLowerCase() === "linear") {
       this._ratingProgress =
-        value > 0 && value < this._maxRating ? "width:" + value * this._maxRating + "%" : "width:0%";
+        value > 0 && value < this._maxRating
+          ? "width:" + value * this._maxRating + "%"
+          : "width:0%";
     } else {
       this._ratingProgress =
         "stroke-dashoffset:" + 314.1592 * (value / this._maxRating) + "%";
@@ -90,6 +107,9 @@ export default class OrxeRatingBar extends TranslationClass {
     }
   }
 
+  /**
+   * This method returns the html template for the linear rating bar
+   */
   private _getLinearRatingBarTemplate() {
     return html`
       <div class="linear-rating-bar">
@@ -104,6 +124,9 @@ export default class OrxeRatingBar extends TranslationClass {
     `;
   }
 
+  /**
+   * This method returns the html template for the donut rating bar
+   */
   private _getDonutRatingBarTemplate() {
     return html`
       <div class="donut-rating-bar">
@@ -127,6 +150,9 @@ export default class OrxeRatingBar extends TranslationClass {
     `;
   }
 
+  /**
+   * This method is used to add an aria-label attribute on the component if one is not provided by the consumer.
+   */
   private _addAriaLabel() {
     const ariaLabel = `${this.t("aria_label", {
       label: this.label,
